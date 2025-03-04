@@ -5,9 +5,10 @@ import { EmployeeComponent } from '../employee/employee.component';
 import { DepartmentComponent } from '../department/department.component';
 
 const routes: Routes = [
-  { path: '', component: SharedComponent },
+  { path: '', redirectTo: 'employee', pathMatch: 'full' }, // Redirect to 'employee' on empty path
   { path: 'employee', component: EmployeeComponent },
   { path: 'department', component: DepartmentComponent },
+  { path: '**', component: SharedComponent } // Optional: cat
 ];
 
 @NgModule({
