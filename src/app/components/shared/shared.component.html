@@ -1,0 +1,20 @@
+<select class="bg-warning mt-5" [(ngModel)]="selectedDepartment">
+ <option selected value="">All Departments</option>
+ <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+</select>
+
+<!-- Employee Table -->
+<table border="1" class="table table-bordered table-hover table-striped border border-2 p-3 text-center">
+ <thead>
+  <tr>
+   <th *ngFor="let column of columnsToDisplay">{{ column | titlecase }}</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let employee of getFilteredEmployees()">
+   <td *ngFor="let column of columnsToDisplay">
+    {{ employee[column] }}
+   </td>
+  </tr>
+ </tbody>
+</table>
